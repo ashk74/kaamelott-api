@@ -4,8 +4,20 @@ namespace App\Service;
 
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
+/**
+ * Class ApiService to get data from the Kaamelott API
+ *
+ * @package App\Service
+ *
+ * @see https://kaamelott.chaudie.re/api/
+ */
 class ApiService
 {
+    /**
+     * ApiService constructor
+     *
+     * @param \Symfony\Contracts\HttpClient\HttpClientInterface $client
+     */
     public function __construct(private HttpClientInterface $client)
     {
     }
@@ -51,15 +63,15 @@ class ApiService
      */
     public function getCharacters(): array
     {
-        // Get all quotes
+        // Get all quotes.
         $quotes = $this->allQuotes();
 
-        // Get all characters
+        // Get all characters.
         for ($i = 0; $i < count($quotes['citation']); $i++) {
             $characters[] = $quotes['citation'][$i]['infos']['personnage'];
         }
 
-        // Remove duplicates
+        // Remove duplicates.
         $characters = array_unique($characters);
 
         return $characters;
@@ -73,16 +85,17 @@ class ApiService
     public function getImages(): array
     {
         $images = [];
-        // Get all characters
+        // Get all characters.
         foreach ($this->getCharacters() as $character) {
-            // Get image
+            // Get image.
             $response = $this->client->request('GET', 'https://kaamelott.chaudie.re/api/personnage/' . $character . '/pic');
 
-            // If the response is not an image, use a placeholder
+            // If the response is an image, use it.
+            $images[$character] = 'https://kaamelott.chaudie.re/api/personnage/' . $character . '/pic';
+
+            // If the response is not an image, use a placeholder.
             if (json_decode($response->getContent(), true)) {
                 $images[$character] = 'https://place-hold.it/250x250.png?text=' . $character . '&italic&fontsize=22';
-            } else {
-                $images[$character] = 'https://kaamelott.chaudie.re/api/personnage/' . $character . '/pic';
             }
         }
 
