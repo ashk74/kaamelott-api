@@ -10,7 +10,7 @@
 					<a class="nav-link {{ app.request.get('_route') == 'app_home' ? 'active' }}" href="{{ path('app_home') }}">Accueil</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Citations</a>
+					<a class="nav-link" href="{{ path('app_quote') }}">Citations</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Personnages</a>
