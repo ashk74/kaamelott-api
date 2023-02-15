@@ -56,6 +56,13 @@ class ApiService
         return $this->get('all');
     }
 
+    /**
+     * Get all quotes from a character
+     *
+     * @param string $character Character name
+     *
+     * @return array $response
+     */
     public function getQuotesByCharacter(string $character): array
     {
         return $this->get('all/personnage/' . $character);

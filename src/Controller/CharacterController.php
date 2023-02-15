@@ -9,6 +9,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CharacterController extends AbstractController
 {
+    /**
+     * Display the characters page of the website.
+     *
+     * @param \App\Service\ApiService $apiService
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     #[Route('/personnages', name: 'app_character')]
     public function index(ApiService $apiService): Response
     {
@@ -19,6 +26,14 @@ class CharacterController extends AbstractController
         ]);
     }
 
+    /**
+     * Display quotes of a character.
+     *
+     * @param \App\Service\ApiService $apiService
+     * @param string $name Character name
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     #[Route('/personnage/{name}', name: 'app_character_show'),]
     public function show(ApiService $apiService, string $name): Response
     {
