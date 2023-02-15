@@ -9,7 +9,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
  *
  * @package App\Service
  *
- * @see https://kaamelott.chaudie.re/api/
+ * @see https://github.com/sin0light/api-kaamelott
  */
 class ApiService
 {
@@ -54,6 +54,18 @@ class ApiService
     public function allQuotes(): array
     {
         return $this->get('all');
+    }
+
+    /**
+     * Get all quotes from a character
+     *
+     * @param string $character Character name
+     *
+     * @return array $response
+     */
+    public function getQuotesByCharacter(string $character): array
+    {
+        return $this->get('all/personnage/' . $character);
     }
 
     /**
