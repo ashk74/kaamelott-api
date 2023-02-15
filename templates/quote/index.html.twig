@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Citations
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid my-4">
+		<div class="mx-4">
+			<h2 class="text-center mb-4">Toutes les citations</h2>
+			<div class="row row-cols-1 row-cols-md-4 row-cols-lg-6">
+				{% for quote in quotes.citation %}
+					<div class="col mb-4">
+						<div class="card">
+							<img class="card-img-top" src="{{ images[quote.infos.personnage] }}" alt="Card image cap">
+							<div class="card-header">
+								{{ quote.infos.saison}}
+							</div>
+							<div class="card-body">
+								<blockquote class="blockquote mb-0">
+									<p>
+										{{ quote.citation }}
+									</p>
+									<footer class="blockquote-footer">
+										{{ quote.infos.personnage }}
+										dans l'épisode
+										<cite title="Source Title">{{ quote.infos.episode }}</cite>
+									</footer>
+								</blockquote>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
