@@ -13,10 +13,8 @@
 		{% block navbar %}
 			{% include 'partials/_navbar.html.twig' %}
 		{% endblock %}
-		{% if app.request.get('_route') != 'app_home' %}
-			{% block hero %}
-				{% include 'partials/_hero.html.twig' %}
-			{% endblock %}
+		{% if block("hero") is defined %}
+			{% include 'partials/_hero.html.twig' %}
 		{% endif %}
 
 		{% block content %}{% endblock %}

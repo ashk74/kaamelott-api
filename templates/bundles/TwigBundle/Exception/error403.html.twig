@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+	<div class="d-flex align-items-center justify-content-center vh-100">
+		<div class="text-center">
+			<h1 class="display-1 fw-bold">403</h1>
+			<p class="fs-3">
+				<span class="text-danger">Oupps!</span>
+				Accès non autorisé</p>
+			<p class="lead">
+				Vous n'avez pas les autorisations nécessaires pour accéder à cette page.
+			</p>
+			<a href="{{ path('app_home') }}" class="btn btn-dark">Accueil</a>
+		</div>
+	</div>
+{% endblock %}
