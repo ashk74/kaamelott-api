@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{{ path('app_home') }}">Kaamelott API</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link {{ 'app_home' in app.request.get('_route') ? 'active' }}" href="{{ path('app_home') }}">Accueil</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link {{ 'app_quote' in app.request.get('_route') ? 'active' }}" href="{{ path('app_quote') }}">Citations</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link {{ 'app_character' in app.request.get('_route') ? 'active' }}" href="{{ path('app_character') }}">Personnages</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link {{ 'app_book' in app.request.get('_route') ? 'active' }}" href="{{ path('app_book') }}">Livres</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

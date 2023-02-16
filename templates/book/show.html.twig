@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{% for name in book %}
+		Citations du
+		{{ name }}
+	{% endfor %}
+{% endblock %}
+
+{% block content %}
+	{% for id, name in book %}
+		<div class="container-fluid my-4">
+			<div class="mx-4">
+				<h2 class="text-center mb-4">{{ name }}</h2>
+				<div class="row row-cols-1 row-cols-md-4 row-cols-lg-6">
+					{% for quote in quotesByBook.citation %}
+						<div class="col mb-4">
+							<div class="card">
+								<div class="card-header text-center">
+									{{ quote.infos.personnage}}
+								</div>
+								<div class="card-body">
+									<blockquote class="blockquote mb-0">
+										<p>
+											{{ quote.citation }}
+										</p>
+										<footer class="blockquote-footer">
+											<cite title="Source Title">{{ quote.infos.episode }}</cite>
+										</footer>
+									</blockquote>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid my-4">
+		<div class="mx-4">
+			<div class="row row-cols-1">
+				<div class="col">
+					<h2>Contexte</h2>
+					<p>
+						Développer une application web qui consomme l'API REST de Kaamelott pour afficher les citations les plus célèbres de la série ainsi que les personnages, épisodes et livres associés.
+					</p>
+				</div>
+			</div>
+			<hr>
+			<div class="row row-cols-1">
+				<div class="col">
+					<h2>Stack technique</h2>
+					<ul>
+						<li>Langage : PHP 8.2</li>
+						<li>Back-end : Symfony 6.2</li>
+						<li>Front-end : Bootstrap 5.3</li>
+						<li>Templating : Twig 3.5</li>
+						<li>Gestionnaire de dépendances : Composer</li>
+						<li>Qualité du code : Codacy</li>
+						<li>Versioning : Git et GitHub</li>
+						<li>Hébergement : Heroku</li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<div class="row row-cols-1">
+				<div class="col">
+					<h2 class="mb-3">Skills</h2>
+					<table class="table">
+						<thead class="table-dark">
+							<tr>
+								<th scope="col">Compétences mise en avant</th>
+								<th scope="col">Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">Consommation de l'API REST</th>
+								<td>Compréhension de la manière de consommer une API REST pour obtenir des données et les afficher dans l'application.</td>
+							</tr>
+							<tr>
+								<th scope="row">Connaissance du Framework PHP Symfony</th>
+								<td>Compréhension de Symfony grâce à l'utilisation des composants : Routing, HttpClient, Validator, MakerBundle, Asset et Twig-pack.</td>
+							</tr>
+							<tr>
+								<th scope="row">Connaissance du Framework Front-end Bootstrap</th>
+								<td>Compréhension des composants prédéfinis de Bootstrap et capacité à personnaliser l'interface utilisateur en utilisant les classes CSS de Bootstrap.</td>
+							</tr>
+							<tr>
+								<th scope="row">Connaissance de HTML, CSS et Twig</th>
+								<td>Compréhension des technologies citées pour développer l'interface utilisateur de l'application.</td>
+							</tr>
+							<tr>
+								<th scope="row">Connaissance de la programmation orientée objet (POO)</th>
+								<td>Compréhension de la POO pour consommer une API REST.</td>
+							</tr>
+							<tr>
+								<th scope="row">Connaissance de Git et de la gestion de version</th>
+								<td>Compréhension de la gestion de version pour suivre les modifications apportées au code et pour collaborer avec d'autres développeurs.</td>
+							</tr>
+							<tr>
+								<th scope="row">Connaissance de l’outil Codacy</th>
+								<td>Compréhension de l'analyse de code automatisée par Codacy pour détecter les problèmes potentiels, la mise en conformité avec les normes de codage, et l'amélioration de la qualité du code grâce aux commentaires et suggestions fournis.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<hr>
+			<h2>Wireframes</h2>
+			<div class="row row-cols-1 row-cols-md-3">
+				<div class="col mb-4">
+					<a href="{{ asset('assets/img/wireframes/home.png') }}" target="_blank">
+						<div class="ratio ratio-1x1 border border-muted">
+							<div style="background: transparent url({{ asset('assets/img/wireframes/home.png') }}); background-position:center top; background-repeat:no-repeat; background-size:cover;"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col mb-4">
+					<a href="{{ asset('assets/img/wireframes/quotes.png') }}" target="_blank">
+						<div class="ratio ratio-1x1 border border-muted">
+							<div style="background: transparent url({{ asset('assets/img/wireframes/quotes.png') }}); background-position:center top; background-repeat:no-repeat; background-size:cover;"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col mb-4">
+					<a href="{{ asset('assets/img/wireframes/characters.png') }}" target="_blank">
+						<div class="ratio ratio-1x1 border border-muted">
+							<div style="background: transparent url({{ asset('assets/img/wireframes/characters.png') }}); background-position:center top; background-repeat:no-repeat; background-size:cover;"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col mb-4">
+					<a href="{{ asset('assets/img/wireframes/characterQuotes.png') }}" target="_blank">
+						<div class="ratio ratio-1x1 border border-muted">
+							<div style="background: transparent url({{ asset('assets/img/wireframes/characterQuotes.png') }}); background-position:center top; background-repeat:no-repeat; background-size:cover;"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col mb-4">
+					<a href="{{ asset('assets/img/wireframes/books.png') }}" target="_blank">
+						<div class="ratio ratio-1x1 border border-muted">
+							<div style="background: transparent url({{ asset('assets/img/wireframes/books.png') }}); background-position:center top; background-repeat:no-repeat; background-size:cover;"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col mb-4">
+					<a href="{{ asset('assets/img/wireframes/bookQuotes.png') }}" target="_blank">
+						<div class="ratio ratio-1x1 border border-muted">
+							<div style="background: transparent url({{ asset('assets/img/wireframes/bookQuotes.png') }}); background-position:center top; background-repeat:no-repeat; background-size:cover;"></div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
