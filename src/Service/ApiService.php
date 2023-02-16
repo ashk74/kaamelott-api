@@ -125,7 +125,7 @@ class ApiService
      */
     public function getBooks(): array
     {
-        return $books = [
+        return [
             [1 => 'Livre I',],
             [2 => 'Livre II',],
             [3 => 'Livre III',],
