@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Livres
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid my-4">
+		<div class="mx-4">
+			<h2 class="text-center mb-4">Tous les livres</h2>
+			<div class="row row-cols-1 row-cols-md-3 row-cols-lg-6">
+				{% for book in books %}
+					{% for key, name in book %}
+						<div class="col mb-4">
+							<div class="card">
+								<a href="{{ path('app_book_show', {'id' : key}) }}">
+									<img class="card-img" src="{{ 'https://place-hold.it/250x250.png?text=' ~ name ~ '&italic&fontsize=22' }}" alt="{{ name }}">
+								</a>
+							</div>
+						</div>
+					{% endfor %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
