@@ -9,6 +9,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BookController extends AbstractController
 {
+    /**
+     * Display the list of books
+     *
+     * @param \App\Service\ApiService $apiService
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     #[Route('/livres', name: 'app_book')]
     public function index(ApiService $apiService): Response
     {
@@ -18,6 +25,14 @@ class BookController extends AbstractController
         ]);
     }
 
+    /**
+     * Display quotes of a book.
+     *
+     * @param \App\Service\ApiService $apiService
+     * @param int $id Book id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     #[Route('/livre/{id}', name: 'app_book_show')]
     public function show(ApiService $apiService, int $id): Response
     {
