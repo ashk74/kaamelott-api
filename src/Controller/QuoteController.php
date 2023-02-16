@@ -17,7 +17,7 @@ class QuoteController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      */
     #[Route('/citations', name: 'app_quote')]
-    public function test(ApiService $apiService): Response
+    public function index(ApiService $apiService): Response
     {
         return $this->render('quote/index.html.twig', [
             'randomQuote' => $apiService->randomQuote(),

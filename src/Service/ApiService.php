@@ -69,6 +69,87 @@ class ApiService
     }
 
     /**
+     * Get all quotes from a book
+     *
+     * @param int $book Book number
+     *
+     * @return array $response
+     */
+    public function getQuotesByBook(int $book): array
+    {
+        return $this->get('all/livre/' . $book);
+    }
+
+    /**
+     * Get all quotes from the character in the book
+     *
+     * @param int $book Book number
+     * @param string $character Character name
+     *
+     * @return array $response
+     */
+    public function getQuotesByCharacterAndBook(int $book, string $character): array
+    {
+        return $this->get('all/livre/' . $book . '/personnage/' . $character);
+    }
+
+    /**
+     * Get random quote from the book
+     *
+     * @param int $book Book number
+     *
+     * @return array $response
+     */
+    public function getRandomQuoteByBook(int $book): array
+    {
+        return $this->get('random/livre/' . $book);
+    }
+
+    /**
+     * Get random quote from the character in the book
+     *
+     * @param int $book Book number
+     * @param string $character Character name
+     *
+     * @return array $response
+     */
+    public function getRandomQuoteByCharacterAndBook(int $book, string $character): array
+    {
+        return $this->get('random/livre/' . $book . '/personnage/' . $character);
+    }
+
+    /**
+     * Get all books
+     *
+     * @return array $books
+     */
+    public function getBooks(): array
+    {
+        return $books = [
+            [1 => 'Livre I',],
+            [2 => 'Livre II',],
+            [3 => 'Livre III',],
+            [4 => 'Livre IV',],
+            [5 => 'Livre V',],
+            [6 => 'Livre VI',]
+        ];
+    }
+
+    /**
+     * Get one book from book number
+     *
+     * @param int $book Book number
+     *
+     * @return array $name
+     */
+    public function getBook(int $book): array
+    {
+        $books = $this->getBooks();
+
+        return $books[$book - 1];
+    }
+
+    /**
      * Get all characters from the API
      *
      * @return array $characters
