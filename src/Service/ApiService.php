@@ -150,24 +150,69 @@ class ApiService
     }
 
     /**
-     * Get all characters from the API
+     * Get array of all characters
      *
      * @return array $characters
      */
     public function getCharacters(): array
     {
-        // Get all quotes.
-        $quotes = $this->allQuotes();
-
-        // Get all characters.
-        for ($i = 0; $i < count($quotes['citation']); $i++) {
-            $characters[] = $quotes['citation'][$i]['infos']['personnage'];
-        }
-
-        // Remove duplicates.
-        $characters = array_unique($characters);
-
-        return $characters;
+        return [
+            "Angharad",
+            "Anna",
+            "Appius Manilius",
+            "Arthur",
+            "Attila",
+            "Belt",
+            "Père Blaise",
+            "Bohort",
+            "Breccan",
+            "Le Roi Burgonde",
+            "Caius Camillus",
+            "Calogrenant",
+            "Capito",
+            "César",
+            "Cryda de Tintagel",
+            "Dagonet",
+            "La Dame du Lac",
+            "Demetra",
+            "Drusilla",
+            "Le Duc d'Aquitaine",
+            "Edern",
+            "Elias de Kelliwic'h",
+            "Galessin",
+            "Gauvain",
+            "Goustan",
+            "Grüdü",
+            "Guenièvre",
+            "Guethenoc",
+            "Hervé de Rinel",
+            "L'interprète burgonde",
+            "Le Seigneur Jacca",
+            "Les Jumelles du pêcheur",
+            "Le Jurisconsulte",
+            "Kadoc",
+            "Karadoc",
+            "Lancelot",
+            "Léodagan",
+            "Loth",
+            "Le Maître d'Armes",
+            "Méléagant",
+            "Manius Macrinus Firmus",
+            "Merlin",
+            "Mevanwi",
+            "Perceval",
+            "Roparzh",
+            "Lucius Sillius Sallustius",
+            "Séfriane d'Aquitaine",
+            "Séli",
+            "Spurius Cordius Frontinius",
+            "Le Tavernier",
+            "Urgan",
+            "Vérinus",
+            "Venec",
+            "Ygerne",
+            "Yvain",
+        ];
     }
 
     /**
@@ -180,18 +225,31 @@ class ApiService
         $images = [];
         // Get all characters.
         foreach ($this->getCharacters() as $character) {
-            // Get image.
-            $response = $this->client->request('GET', 'https://kaamelott.chaudie.re/api/personnage/' . $character . '/pic');
-
-            // If the response is an image, use it.
+            // If the character has an image, use it.
             $images[$character] = 'https://kaamelott.chaudie.re/api/personnage/' . $character . '/pic';
 
-            // If the response is not an image, use a placeholder.
-            if (json_decode($response->getContent(), true)) {
+            // Else, use a placeholder.
+            if (in_array($character, $this->charactersWithoutImage())) {
                 $images[$character] = 'https://place-hold.it/250x250.png?text=' . $character . '&italic&fontsize=22';
             }
         }
 
         return $images;
+    }
+
+    /**
+     * Get all characters without image
+     *
+     * @return array $characters
+     */
+    public function charactersWithoutImage(): array
+    {
+        return [
+            'Breccan',
+            'Edern',
+            'Le Seigneur Jacca',
+            'Les Jumelles du pêcheur',
+            'Séfriane d\'Aquitaine',
+        ];
     }
 }
