@@ -225,18 +225,31 @@ class ApiService
         $images = [];
         // Get all characters.
         foreach ($this->getCharacters() as $character) {
-            // Get image.
-            $response = $this->client->request('GET', 'https://kaamelott.chaudie.re/api/personnage/' . $character . '/pic');
-
-            // If the response is an image, use it.
+            // If the character has an image, use it.
             $images[$character] = 'https://kaamelott.chaudie.re/api/personnage/' . $character . '/pic';
 
-            // If the response is not an image, use a placeholder.
-            if (json_decode($response->getContent(), true)) {
+            // Else, use a placeholder.
+            if (in_array($character, $this->charactersWithoutImage())) {
                 $images[$character] = 'https://place-hold.it/250x250.png?text=' . $character . '&italic&fontsize=22';
             }
         }
 
         return $images;
+    }
+
+    /**
+     * Get all characters without image
+     *
+     * @return array $characters
+     */
+    public function charactersWithoutImage(): array
+    {
+        return [
+            'Breccan',
+            'Edern',
+            'Le Seigneur Jacca',
+            'Les Jumelles du pêcheur',
+            'Séfriane d\'Aquitaine',
+        ];
     }
 }
