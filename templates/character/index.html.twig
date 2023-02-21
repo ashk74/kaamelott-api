@@ -15,7 +15,7 @@
 					<div class="col mb-4">
 						<div class="card">
 							<a href="{{ path('app_character_show', { 'name' : character }) }}">
-								<img class="card-img-top" src="{{ asset('assets/img/loader.gif') }}" {{ stimulus_controller('symfony/ux-lazy-image/lazy-image', { src: images[character] } ) }} alt={{ character }}>
+								<img class="card-img-top" src="{{ images[character] }}" alt="Card image cap">
 							</a>
 							<div class="card-footer text-center">
 								{{ character }}
