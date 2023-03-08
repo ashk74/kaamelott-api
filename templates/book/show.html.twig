@@ -14,22 +14,28 @@
 		<div class="container-fluid my-4">
 			<div class="mx-4">
 				<h2 class="text-center mb-4">{{ name }}</h2>
-				<div class="row row-cols-1 row-cols-md-4 row-cols-lg-6">
+				<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" data-masonry='{"percentPosition": true,  "itemSelector": ".col" }'>
 					{% for quote in quotesByBook.citation %}
 						<div class="col mb-4">
-							<div class="card">
-								<div class="card-header text-center">
-									{{ quote.infos.personnage}}
-								</div>
-								<div class="card-body">
-									<blockquote class="blockquote mb-0">
-										<p>
-											{{ quote.citation|raw }}
-										</p>
-										<footer class="blockquote-footer">
-											<cite title="Source Title">{{ quote.infos.episode }}</cite>
-										</footer>
-									</blockquote>
+							<div class="card rounded-3 border-0">
+								<div class="card-body p-4">
+									<div class="row">
+										<div class="col-sm-2 col-md-4">
+											<img class="rounded-circle" src="{{ images[quote.infos.personnage] }}" alt="Card image cap" width="100%">
+										</div>
+										<div class="col-8">
+											<figure>
+												<blockquote class="blockquote">
+													<p>{{ quote.citation|raw }}</p>
+												</blockquote>
+												<figcaption class="blockquote-footer">
+													{{ quote.infos.personnage }}
+													dans l'épisode
+													<cite>{{ quote.infos.episode }}</cite>
+												</figcaption>
+											</figure>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

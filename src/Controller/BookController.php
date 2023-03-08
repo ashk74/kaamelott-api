@@ -51,7 +51,8 @@ class BookController extends AbstractController
         return $this->render('book/show.html.twig', [
             'randomQuote' => $this->apiService->randomQuote(),
             'quotesByBook' => $this->cacheService->get('quotesByBook_' . $id, $this->apiService->getQuotesByBook($id)),
-            'book' => $this->cacheService->get('book_' . $id, $this->apiService->getBook($id))
+            'book' => $this->cacheService->get('book_' . $id, $this->apiService->getBook($id)),
+            'images' => $this->cacheService->get('images', $this->apiService->getImages())
         ]);
     }
 }
