@@ -11,22 +11,25 @@
 	<div class="container-fluid my-4">
 		<div class="mx-4">
 			<h2 class="text-center mb-4">{{ character }}</h2>
-			<div class="row row-cols-1 row-cols-md-4 row-cols-lg-6">
+			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" data-masonry='{"percentPosition": true,  "itemSelector": ".col" }'>
 				{% for quote in characterQuotes.citation %}
 					<div class="col mb-4">
-						<div class="card">
+						<div class="card rounded-3 border-0">
 							<div class="card-header">
 								{{ quote.infos.saison}}
 							</div>
-							<div class="card-body">
-								<blockquote class="blockquote mb-0">
-									<p>
-										{{ quote.citation|raw }}
-									</p>
-									<footer class="blockquote-footer">
-										<cite title="Source Title">{{ quote.infos.episode }}</cite>
-									</footer>
-								</blockquote>
+							<div class="card-body p-4">
+								<figure>
+									<blockquote class="blockquote">
+										<p>{{ quote.citation|raw }}</p>
+									</blockquote>
+									<figcaption class="blockquote-footer">
+										Épisode :
+										<cite>
+											{{ quote.infos.episode }}
+										</cite>
+									</figcaption>
+								</figure>
 							</div>
 						</div>
 					</div>

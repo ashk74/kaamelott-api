@@ -14,7 +14,7 @@
 				{% for book in books %}
 					{% for key, name in book %}
 						<div class="col mb-4">
-							<div class="card">
+							<div class="card rounded-3 border-0">
 								<a href="{{ path('app_book_show', {'id' : key}) }}">
 									<img class="card-img" src="{{ 'https://place-hold.it/250x250.png?text=' ~ name ~ '&italic&fontsize=22' }}" alt="{{ name }}">
 								</a>
