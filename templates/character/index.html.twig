@@ -13,13 +13,13 @@
 			<div class="row row-cols-1 row-cols-md-4 row-cols-lg-6">
 				{% for character in characters %}
 					<div class="col mb-4">
-						<div class="card">
+						<div class="card bg-dark text-white border-0 rounded-circle">
+							<img class="card-img-top rounded-circle" src="{{ images[character] }}" alt="Card image cap">
 							<a href="{{ path('app_character_show', { 'name' : character }) }}">
-								<img class="card-img-top" src="{{ images[character] }}" alt="Card image cap">
+								<div class="card-img-overlay text-center text-white">
+									<h5 class="card-title position-absolute top-50 start-50 translate-middle">{{ character }}</h5>
+								</div>
 							</a>
-							<div class="card-footer text-center">
-								{{ character }}
-							</div>
 						</div>
 					</div>
 				{% endfor %}

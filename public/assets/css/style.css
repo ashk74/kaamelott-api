@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'Carrois-Gothic-Regular';
+    src: url(../fonts/Carrois-Gothic-Regular.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: 'Pragati-Narrow-Regular';
+    src: url(../fonts/Pragati-Narrow-Regular.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: 'Krub-Light';
+    src: url(../fonts/Krub-Light.ttf) format('ttf');
+}
+
+html {
+    font-family: 'Krub-Light';
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+blockquote {
+    font-family: 'Pragati-Narrow-Regular';
+}
+
+figure {
+    text-align: justify;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Carrois-Gothic-Regular';
+}
+
+#wireframes {
+    background-color: white;
+}
+
+.hero {
+    background-image: url(../img/bg.jpg);
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.card {
+    background-color: white;
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.75;
+    border-radius: 100%;
+    background-color: black;
+    transition: opacity 0.3s;
+}
